@@ -1,22 +1,39 @@
 package com.qlsv.moduls;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 
-import com.qlsv.interfaces.IDataInterface;
+import android.provider.OpenableColumns;
 
-public class DataProvider implements IDataInterface{
+import com.qlsv.interfaces.IDataProvider;
+
+public class DataProvider implements IDataProvider {
 
 	@Override
-	public void AddSinhVien() {
-		
-		ArrayList<SinhVien> arr = new ArrayList<SinhVien>();
-		SinhVien sv = new SinhVien();
-		
+	public boolean Insert(SinhVien sv,OutputStreamWriter osw) {
+		try {
 			
+			/*PrintWriter pw = new PrintWriter(fos);
+			Writer w = null;
+			pw.append(sv.getTen() + " " + sv.getNgaysinh() + " " + sv.getDiachi());*/
+			BufferedWriter bw = new BufferedWriter(osw);
+			bw.append(sv.getTen() + " " + sv.getNgaysinh() + " " + sv.getDiachi());
+			bw.newLine();
+			//pw.close();
+			bw.close();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
 	}
 
 	@Override
-	public ArrayList<SinhVien> getAllSinhVien() {
+	public ArrayList<SinhVien> getAll() {
 		return null;
 		// TODO Auto-generated method stub
 		

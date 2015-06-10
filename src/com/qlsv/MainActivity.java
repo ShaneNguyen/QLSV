@@ -1,5 +1,7 @@
 package com.qlsv;
 
+import java.io.FileOutputStream;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		
 		btn_them = (Button) findViewById(R.id.btn_Them);
 		btn_tim = (Button) findViewById(R.id.btn_Tim);
